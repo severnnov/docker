@@ -145,6 +145,8 @@ RUN set -eux; \
 		echo >&2 "$nativeLines"; \
 		exit 1; \
 	fi
+
+RUN apt-get update
 RUN apt-get install -y maven
 RUN apt-get install -y git
 RUN git clone https://github.com/deepshankaryadav/CyberFRAT-DevSecOps-Training-Sample-Java-App.git "/tmp/mvn/1"
