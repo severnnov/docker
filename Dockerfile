@@ -145,6 +145,10 @@ RUN set -eux; \
 		echo >&2 "$nativeLines"; \
 		exit 1; \
 	fi
-#
+RUN apt-get install -y maven
+RUN apt-get install -y git
+RUN git clone https://github.com/deepshankaryadav/CyberFRAT-DevSecOps-Training-Sample-Java-App.git "/tmp/mvn/1"
+RUN mvn package -B -f /tmp/mvn/1
+RUN cp /tmp/mvn/1/target/WebApp.war /usr/local/tomcat/webapps/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
